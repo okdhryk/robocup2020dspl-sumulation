@@ -10,7 +10,7 @@ Current PDF (master) https://okdhryk.github.io/robocup2020dspl-sumulation/Rulebo
 $ ./latexdockercmd.sh pdflatex Rulebook.tex
 ```
 
-aaaa
+
 ## FAQ
 See the Frequently Asked Questions here.
 
