@@ -75,22 +75,34 @@
 \fi
 \makeatother
 
-\rhead{\includegraphics[width=2cm]{{images/header.png}}}
-
+\rhead{\includegraphics[width=2cm]{{images/logo_RoboCupAtHome.jpg}}}
 \begin{document}
-
 \begin{titlepage}
+\begin{figure}[H]
+    \begin{tabular}{cc}
+      \begin{minipage}[t]{0.5\hsize}
+%        \centering
+	\raggedright
+        \includegraphics[width=2cm]{images/logo_RoboCupFed.jpg}      \end{minipage} &
+      \begin{minipage}[t]{0.5\hsize}
+%        \centering
+	\raggedleft
+        \includegraphics[width=2cm]{images/logo_RoboCupAtHome.jpg}
+      \end{minipage}
+    \end{tabular}
+  \end{figure}
+
 	\centering
 	%\includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
 	{\scshape\LARGE RoboCup2021\par}
 	\vspace{1cm}
-	{\scshape\Large @Home\par}
+	{\scshape\LARGE @Home\par}
 	\vspace{1.5cm}
 	{\huge\bfseries Simulation DSLP\par}
 	\vspace{2cm}
 	{\Large\itshape Rules \& Regulations\par}
 	\vfill
-	\includegraphics[width=0.50\textwidth]{{images/real01.png}}
+	\includegraphics[width=0.80\textwidth]{{images/sim01.png}}
 	\vfill
 	
 % Bottom of the page
@@ -123,20 +135,46 @@ We would like to thank all the people who contributed to the RoboCup@home Techni
 \section{Introduction}
 
 \subsection{RoboCup}
-
-
+RoboCup is an international joint project to promote AI, robotics, and related fields. It is an attempt to foster AI and intelligent robotics research by providing standard problems where a wide range of technologies can be integrated and examined. More information can be found at {\small\url{http://www.robocup.org/}}.
 \subsection{@Home}
+The RoboCup@Home league aims to develop service and assistive robot technology with high relevance for future personal domestic applications. It is the largest international annual competition for autonomous service robots and is part of the RoboCup initiative. A set of benchmark tests is used to evaluate the robots' abilities and performance in a realistic non-standardized home environment setting. Focus lies on the following domains but is not limited to: Human-Robot-Interaction and Cooperation, Navigation and Mapping in dynamic environments, Computer Vision and Object Recognition under natural light conditions, Object Manipulation, Adaptive Behaviors, Behavior Integration, Ambient Intelligence, Standardization and System Integration. It is colocated with the RoboCup symposium.
+
+\subsection{Domestic Standard Platform League}
+The Domestic Standard Platform League(DSPL) has as main goal to assist humans in a domestic environment, paying special atten-tion to elderly people and people suffering of illness or disability.
+
+In consequence, the DSPL focuses on Ambient Intelligence, Computer Vision, Object Manipulation, Safe Indoor Navigation and Mapping, and Task Planning.
 
 
-\subsection{DSPL}
+\footnotetext[1]{Takashi Yamamoto et. al. \textit{Development of Human Support Robot as the research platform of a domestic mobile manipulator}. ROBOMECH Journal, 2019.}
+
+
+
+The robot to be used in the DSPL is Human Support Robot\footnotemark (HSR) by Toyota Motor Corporation shown in  Figure \ref{fig:dspl1} and Figure \ref{fig:dspl2}.
+
+\begin{figure}[H]
+    \begin{tabular}{cc}
+      \begin{minipage}[t]{0.5\hsize}
+%        \centering
+	\raggedright
+        \includegraphics[width=0.80\textwidth]{images/real01.png}
+       \label{fig:dspl1}
+       \caption{Toyota HSR}
+      \end{minipage} &
+      \begin{minipage}[t]{0.5\hsize}
+	\raggedleft
+        \includegraphics[width=0.50\textwidth]{images/real03.png}
+       \label{fig:dspl2}
+       \caption{simulated HSR}
+      \end{minipage}
+    \end{tabular}
+ \end{figure}
+
+
 
 
 \newpage
 \section{DSPL Simulation}
-
 \subsection{Concept}
-
-
 
 \begin{figure}[!h]%[!htbp]
 	\centering
@@ -148,15 +186,6 @@ We would like to thank all the people who contributed to the RoboCup@home Techni
 \end{figure}
 
 \subsection{Competition}
-
-
-\subsection{Standard Robot Platform}
-The Human Support Robot\footnotemark (HSR) by Toyota Motor Corporation will be used as the Standard Platform Robot for the RoboCup@Home DSPL.
-
-\footnotetext[1]{Takashi Yamamoto et. al. \textit{Development of Human Support Robot as the research platform of a domestic mobile manipulator}. ROBOMECH Journal, 2019.}
-
-
-
 
 
 \newpage
