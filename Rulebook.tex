@@ -10,8 +10,12 @@
 \usepackage{setspace}
 \usepackage{lipsum}
 
+\usepackage{amsmath}
+\usepackage{url,lineno,microtype}
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\fancyhf{}
 
 \newcommand{\SubItem}[1]{
     {\setlength\itemindent{15pt} \item[-] #1}
@@ -76,6 +80,7 @@
 \makeatother
 
 \rhead{\includegraphics[width=2cm]{{images/logo_RoboCupAtHome.jpg}}}
+
 \begin{document}
 \begin{titlepage}
 \begin{figure}[H]
@@ -120,85 +125,83 @@ This is the official rulebook of the RoboCup DSPL Simulation 2021 competition. I
 
 \begin{acknowledgements}
 
-We would like to thank all the people who contributed to the RoboCup@home Technical Committee members with their feedback and comments. We also like to thank the members of World Robot Summit community.
+We would like to thank all the people who contributed to the RoboCup @home Technical Committee members with their feedback and comments. We also like to thank the members of World Robot Summit community.
 
 
 \end{acknowledgements}
 
-\newpage
+\clearpage
 %\doublespacing
 \spacing{1.5}
 \tableofcontents{}
 \singlespacing
-\newpage
+\clearpage
 
 \section{Introduction}
 
 \subsection{RoboCup}
 RoboCup is an international joint project to promote AI, robotics, and related fields. It is an attempt to foster AI and intelligent robotics research by providing standard problems where a wide range of technologies can be integrated and examined. More information can be found at {\small\url{http://www.robocup.org/}}.
+
 \subsection{@Home}
 The RoboCup@Home league aims to develop service and assistive robot technology with high relevance for future personal domestic applications. It is the largest international annual competition for autonomous service robots and is part of the RoboCup initiative. A set of benchmark tests is used to evaluate the robots' abilities and performance in a realistic non-standardized home environment setting. Focus lies on the following domains but is not limited to: Human-Robot-Interaction and Cooperation, Navigation and Mapping in dynamic environments, Computer Vision and Object Recognition under natural light conditions, Object Manipulation, Adaptive Behaviors, Behavior Integration, Ambient Intelligence, Standardization and System Integration. It is colocated with the RoboCup symposium.
 
 \subsection{Domestic Standard Platform League}
-The Domestic Standard Platform League(DSPL) has as main goal to assist humans in a domestic environment, paying special atten-tion to elderly people and people suffering of illness or disability.
+The Domestic Standard Platform League(DSPL) has as main goal to assist humans in a domestic environment, paying special attention to elderly people and people suffering of illness or disability.
 
 In consequence, the DSPL focuses on Ambient Intelligence, Computer Vision, Object Manipulation, Safe Indoor Navigation and Mapping, and Task Planning.
 
 
 \footnotetext[1]{Takashi Yamamoto et. al. \textit{Development of Human Support Robot as the research platform of a domestic mobile manipulator}. ROBOMECH Journal, 2019.}
 
-
-
 The robot to be used in the DSPL is Human Support Robot\footnotemark (HSR) by Toyota Motor Corporation shown in  Figure \ref{fig:dspl1} and Figure \ref{fig:dspl2}.
 
-\begin{figure}[H]
-    \begin{tabular}{cc}
-      \begin{minipage}[t]{0.5\hsize}
-%        \centering
-	\raggedright
-        \includegraphics[width=0.80\textwidth]{images/real01.png}
-       \label{fig:dspl1}
-       \caption{Toyota HSR}
-      \end{minipage} &
-      \begin{minipage}[t]{0.5\hsize}
-	\raggedleft
-        \includegraphics[width=0.50\textwidth]{images/real03.png}
-       \label{fig:dspl2}
-       \caption{simulated HSR}
-      \end{minipage}
-    \end{tabular}
- \end{figure}
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+  		\centering
+  		\includegraphics[width=1\textwidth]{{images/real01.png}}
+  		\caption{}
+  		\label{fig:dspl1}
+	\end{subfigure}
+	\begin{subfigure}{.30\textwidth}
+  		\centering
+  		\includegraphics[width=1\textwidth]{{images/real03.png}}
+  		\caption{}
+  		\label{fig:dspl2}
+	\end{subfigure}
+	\caption{a) The Toyota Human Support Robot and b) the Simulated model.}
+	\label{fig:dspl}
+\end{figure}
 
-
-
-
-\newpage
-\section{DSPL Simulation}
+\clearpage
+\section{Simulation DSPL}
 \subsection{Concept}
 
-\begin{figure}[!h]%[!htbp]
-	\centering
-	%\begin{center}
-	\includegraphics[width=0.80\textwidth]{{images/real02.png}}
-	\caption{Concept of the RoboCup@Home DSPL.}
-	\label{fig:concept}
-	%\end{center}
-\end{figure}
+The simulation Domestic Standard Platform League surges from the necessity to standarise and spread the research on Domestic Service Robots where a series of baselines can be tested in a standard benchmark. The simulation league provides a first attempt towards that aim.
 
 \subsection{Competition}
 
+The rules and regulations of the sDSPL are highly based on the World Robot Summit - Partner Robot Challenge (Real Space), as in {\small\url{https://worldrobotsummit.org/}}, and therefore some rules might not be applicable to a simulated environment, especially those limited by real physical and mechanical principles.
 
-\newpage
-\section{General Rules \\Tidy Up Here}
+The competition is as follows:
 
-\textbf{Description:} Move the objects spread around a room to their designated locations and provide a person with something to eat when requested.
+\begin{itemize}
+    \item Poster Session
+    \item Stage I
+        \SubItem{Clean Up (5 min)}
+        \SubItem{Go and Get It (5 min)}
+    \item Stage II
+        \SubItem{Clean Up (15 min)}
+    \item Final
+\end{itemize}
 
-\textbf{Time:} 15 min for task 1 + 5 min for task 2
+\clearpage
+\section{General Rules}
 
 \subsection{Objectives}
 \begin{itemize}
-    \item Task 1: Tidy up objects from the incorrect positions to a predetermined tidy up space.
-    \item Task 2: Provide a person within a group with some food from a shelf when requested while avoiding obstacles when navigating.
+    \item Clean Up: Tidy up objects from the incorrect locations to a predetermined deposit.
+    \item Go and Get It: Provide a person within a group with some food from a shelf when requested while avoiding obstacles when navigating.
 \end{itemize}
 
 \subsection{Technical Focus}
@@ -213,22 +216,14 @@ By providing an easy to understand challenge, we aim at identifying and solving 
 
 The Key Performance Indicator is based on a 4S philosophy: Speed, Smooth/ Smart, Stable, and Safe.
 
-\subsection{Settings}
-
-\textbf{Environment}
+\subsection{Setup}
+\noindent
+\textbf{Arena}
 \begin{itemize}
     \item The room layout and furniture positions will be as in as in Figure \ref{fig:arena} and the furniture models are presented in Appendix \ref{sec:furniture}.
     \item Each Task is carried out in the following rooms:
-        \SubItem{Room 1: Living room (Task 1), a 3.5x4.0 meters area, with a 1.2m long door in the top left side of the wall working as a main entrance and a 1.2m long free access (i.e. without door) in the bottom of the shared wall connecting to the dining room, as shown in Figure \ref{fig:tidyup}.}
-        \SubItem{Room 2: Dining room (Task 2), a 2.5x4.0 meters area, as illustrated in Figure \ref{fig:bringdrink}.}
-        
-    \item The operator sends instructions from the front entrance room, including what object to deliver in Task 2.
-    \item Furniture:
-        \SubItem{Task 1: stairs-like drawer (Figure \ref{fig:drawer}), long table (x2), tall table, bin (x2).}
-        \SubItem{Task 2: shelf without door (Figure \ref{fig:shelf}), chair (x2).}
-    \item Storage places:
-        \SubItem{Task 1: drawer, tray, bin, pen pencil holder (Figure \ref{fig:containers}).}
-        \SubItem{Task 2: shelf without door.}
+        \SubItem{Room 1: Living room (Clean Up), a 3.5x4.0 meters area, with a 1.2m long door in the top left side of the wall working as a main entrance and a 1.2m long free access (i.e. without door) in the bottom of the shared wall connecting to the dining room, as shown in Figure \ref{fig:tidyup}.}
+        \SubItem{Room 2: Dining room (Go and Get It), a 2.5x4.0 meters area, as illustrated in Figure \ref{fig:bringdrink}.}
 \end{itemize}
 
 \begin{figure}[!h]%[!htbp]
@@ -248,7 +243,7 @@ The Key Performance Indicator is based on a 4S philosophy: Speed, Smooth/ Smart,
   		\caption{}
   		\label{fig:tidyup}
 	\end{subfigure}
-	\begin{subfigure}{.45\textwidth}
+	\begin{subfigure}{.385\textwidth}
   		\centering
   		\includegraphics[width=1\textwidth]{{images/bring_drink.jpg}}
   		\caption{}
@@ -258,9 +253,49 @@ The Key Performance Indicator is based on a 4S philosophy: Speed, Smooth/ Smart,
 	\label{fig:wrschallenge}
 \end{figure}
 
+\noindent
+\textbf{Objects}
+\begin{itemize}
+    \item Known objects - with pre-announced object recognition data and location information --, 25 units in 5 categories\footnotemark (each category has 5 units randomly chosen from the dataset; the selection process is performed per test): 
+        \SubItem{Food (e.g. chips can, coffee can, cracker box), kitchen items (e.g. glass, bowl, mug), tools (e.g. clamps, padlock's keys), shape items (e.g. baseball, tennis ball), and task items (e.g. Rubick’s cube, t-shirt, airplane toy)}
+    \item Orientation-based items. It is \textbf{important} to notices the existence of this property, where exclusively the following objects have it: 
+        \SubItem{small marker: tip faces downwards}
+        \SubItem{large marker: tip faces downwards}
+        %\SubItem{scissors: tip of blade faces downwards}
+        %\SubItem{knife: handle faces upwards}
+        \SubItem{fork: handle faces upwards}
+        \SubItem{spoon: handle faces upwards}
+    \item Unknown objects - without pre-announced object recognition data nor location information. They will be frequently used daily goods and tools as in Young Sang Choi et. al. \footnotemark, and may include deformable objects such as clothing, food, magazines, etc., 5 units (one per category). 
+\end{itemize}
+
+\footnotetext[2]{Berk Calli et. al. \textit{Benchmarking in Manipulation Research: The YCB Object and Model Set and Benchmarking Protocols}. IEEE Robotics and Automation Magazine, 2015.}
+
+\footnotetext[3]{Young Sang Choi et. al. (2009), \textit{A list of household objects for robotic retrieval prioritized by people with ALS}. IEEE International Conference on Rehabilitation Robotics, ICORR 2009.}
+
+%\footnotetext[3]{http://www.ycbbenchmarks.com/}
+
+Object's specifications and their corresponding 3D models can be found in http://www.ycbbenchmarks.com/ .
+
+\textbf{Boss-character}. During the competitions, one local and representative object may be used to encourage teams to solve some of the most difficult tasks while making the competition more exciting for viewers.\\
+
+\clearpage
+\subsection{Clean Up}
+
+\textbf{Description:} Move the objects spread around a room to their designated locations.
+
+\textbf{Time:} 5 min in Stage I and 15 min in Stage II
+
+\subsubsection{Settings}
+
+\textbf{Environment}
+\begin{itemize}
+    \item Furniture: stairs-like drawer (Figure \ref{fig:drawer}), long table (x2), tall table, bin (x2).
+    \item Storage places: drawer, tray, bin, pen pencil holder (Figure \ref{fig:containers}).
+\end{itemize}
+
 \begin{figure}[!h]%[!htbp]
 	\centering
-	\begin{subfigure}{.45\textwidth}
+	\begin{subfigure}{.365\textwidth}
   		\centering
 	    \includegraphics[width=1\textwidth]{{images/drawer.jpg}}
 	    \caption{}
@@ -277,58 +312,17 @@ The Key Performance Indicator is based on a 4S philosophy: Speed, Smooth/ Smart,
 	%\end{center}
 \end{figure}
 
-\begin{figure}[!h]
-	\centering
-	%\begin{subfigure}{.45\textwidth}
-  		%\centering
-  		\includegraphics[width=0.45\textwidth]{{images/shelf.jpg}}
-  		%\caption{}
-  		%\label{fig:objects}
-	%\end{subfigure}
-	%\begin{subfigure}{.45\textwidth}
-  	%	\centering
-  	%	\includegraphics[width=1\textwidth]{{images/lateral_door_b.jpg}}
-  	%	\caption{}
-  	%	\label{fig:door}
-	%\end{subfigure}
-	\caption{Front view of the shelf and objects inside it.}
-	\label{fig:shelf}
-\end{figure}
-
 \begin{figure}[!h]%[!htbp]
 	\centering
 	%\begin{center}
-	\includegraphics[width=0.80\textwidth]{{images/tray_container.jpg}}
+	\includegraphics[angle=-90, width=0.80\textwidth]{{images/tray_container.jpg}}
 	\caption{Containers may vary in shape and size, but they will be within a predefined area in the deposit area.}
 	\label{fig:containers}
 	%\end{center}
 \end{figure}
 
-\textbf{Objects}
-\begin{itemize}
-    \item Known objects - with pre-announced object recognition data and location information --, 25 units in 5 categories\footnotemark (each category has 5 units randomly chosen from the dataset; the selection process is performed per test): 
-        \SubItem{Food (e.g. chips can, coffee can, cracker box), kitchen items (e.g. glass, bowl, mug), tools (e.g. clamps, padlock's keys), shape items (e.g. baseball, tennis ball), and task items (e.g. Rubick’s cube, t-shirt, airplane toy)}
-    \item Orientation-based items. It is \textbf{important} to notices the existence of this property, where exclusively the following objects have it: 
-        \SubItem{small marker: tip faces downwards}
-        \SubItem{large marker: tip faces downwards}
-        %\SubItem{scissors: tip of blade faces downwards}
-        %\SubItem{knife: handle faces upwards}
-        \SubItem{fork: handle faces upwards}
-        \SubItem{spoon: handle faces upwards}
-    \item Unknown objects - without pre-announced object recognition data nor location information. They will be frequently used daily goods and tools as in Young Sang Choi et. al. \footnotemark, and may include deformable objects such as clothing, food, magazines, etc., 5 units (one per category). 
-\end{itemize}
-
-\footnotetext[3]{Berk Calli et. al. \textit{Benchmarking in Manipulation Research: The YCB Object and Model Set and Benchmarking Protocols}. IEEE Robotics and Automation Magazine, 2015.}
-
-\footnotetext[4]{Young Sang Choi et. al. (2009), \textit{A list of household objects for robotic retrieval prioritized by people with ALS}. IEEE International Conference on Rehabilitation Robotics, ICORR 2009.}
-
-%\footnotetext[3]{http://www.ycbbenchmarks.com/}
-
-Object's specifications and their corresponding 3D models can be found in http://www.ycbbenchmarks.com/ .
-
-\textbf{Boss-character}. During the competitions, one local and representative object may be used to encourage teams to solve some of the most difficult tasks while making the competition more exciting for visitors.\\
-
-\textbf{Tidy Up}
+\noindent
+\textbf{Task Performance}
 \begin{itemize}
     \item The name and location of the deposits are fixed, such as tools drawer, food tray, task items bin, kitchen items container, etc.
     \item Known objects are given with pre-announced information on their corresponding deposits. Orientation-based items can be placed in a deposit corresponding to their category (correct category point) or property (correct category and, if correctly placed, orientation points).
@@ -336,58 +330,37 @@ Object's specifications and their corresponding 3D models can be found in http:/
     \item The furniture doors will have easy-to-manipulate handles (as in Figure \ref{fig:handles}).
 \end{itemize}
 
-\subsection{Before the Competition}
+\subsubsection{Before the Competition}
 
 \begin{itemize}
-    \item Teams are given the time to create/adjust map data in the actual apartment (no objects are placed). The goal location for Task 2a will be announced.
-    \item Each team will be given setup time in turns during the setup day.
+    \item Teams are given the time to create/adjust map data in the actual apartment.
     \item Right before the competition, the referee sets the rooms into messy condition (within a specified error tolerance range).
-    \item Area 1. Living room (task planning, object recognition and manipulation): for Task 1
+    \item Room 1. Living room (task planning, object recognition and manipulation), for the Clean Up task:
         \SubItem{30 objects (5 categories, 5 known + 1 unknown objects per category) are randomly placed in the room (on the floor and or tables).}
         \SubItem{1 boss-character placed at a challenging position within the arena (please refer to Section \ref{sec:scores} for details).}
-    \item Area 2. Dining space (HRI, path and motion planning): for Task 2
-        \SubItem{Obstacles on the floor are set in the access between rooms. Several food items are placed inside the shelf. Some people are in the dining room.}
 \end{itemize}
 
-\subsection{During the Competition}
+\subsubsection{During the Competition}
 
-The robot enters the living room in a messy condition, tidies up the room in 15 minutes, then moves to the dining room while avoiding obstacles on the floor and delivers the food item within 5 minutes.
-
-Several teams are expected to participate and two identical arenas are set up. From all teams, two groups are generated and a group-tournament is considered, with quarter-finals, semi-finals and a final. Each team competes against all others in their bracket, where two teams perform the same task in parallel (Arena A and Arena B). A match winner gets 3 points, a draw gives 1 point to each team, and a defeat makes 0 points. After the qualifiers, the top-ranked teams progress to the next round. A detailed description of a full match is described below:
+The robot enters the living room in a messy condition, tidies up the room in 5 minutes (Stage I) or 15 minutes (Stage II). Three runs are allowed per trial, an average result is given. A detailed description of a full run is described below:
 
 \begin{itemize}
-    \item Each test starts with the operator's command in the Living Room at the front entrance (starting point); the command includes the object to be delivered in Task 2. The start signal is the door opening by the referee.
-    \item When Task 1 has been completed or time limit is up, the robot moves to Room 2 to perform Task 2. As the name of the task suggests, the robot should move at least one object to a deposit before being able to move to the next room or being granted any bonus point. The robot should inform the operator whether the tasks have been completed or the time limit is up.
-    \item Task 1
-        \SubItem{After indicating the object to be delivered in Task 2, start the competition by opening the entrance door by the referee.}
-        \SubItem{Perform tidy up.}
-        \SubItem{Moves to Room 2 after completion of the task or the time is over (15 min). It is important to notice that Task 2 should be completed in 5 minutes after entering Room 2, in case the robot enters before the 15 min mark, and by the 20 minutes limit, in case the robot enters to Room 2 after the 15 min mark.}
-    \item Task 2a
-        \SubItem{Enters the dining room and goes to a goal location while avoiding obstacles.}
-    \item Task 2b
-        \SubItem{The robot goes directly to the shelf and takes the right object given at the beginning of the test.}
-        \SubItem{The robot moves toward the group of persons and gives the object to the one requesting it.}
-        \SubItem{The test ends with the robot reporting the completion of the task or the time is over.}
+    \item Each test starts with the robot at the front entrance (starting point). The start signal is the robot motion.
+    \item As the name of the task suggests, the robot should move at least one object to a deposit before being granted any point point (including bonus points). The robot should inform the operator whether the tasks have been completed or the time limit is up.
+    \item Clean Up
+        \SubItem{Start the competition by moving the robot from the initial position.}
+        \SubItem{Perform clean up.}
 \end{itemize}
 
-\subsection{Scores} \label{sec:scores}
+\subsubsection{Scores} \label{sec:scores}
 
 \begin{itemize}
-    \item Task 1
+    \item Clean Up
         \SubItem{Grasping an object inside the room and correctly depositing it in a location. It is considered a successful grasping if the robot is able to bring the object to a deposit area; if the robot drops the object in its way to a deposit, it is considered unsuccessful and will be subject to a penalisation (hint: the robot can take a dropped object again); a successful deposit consist on the object being inside the deposit, as in Figure \ref{fig:delivery}. Special consideration is given to clothing and textiles, where they can hang in the deposit's border, but without touching the floor (Figure \ref{fig:cloths}): 10 points x 30 units.}
         \SubItem{Correctly depositing an object according to its category: 10 additional points per object.}
         \SubItem{Correctly depositing an object based on its orientation (e.g. markers' tips facing downwards as in Figure \ref{fig:orientation}): 10 additional points per object.}
         \SubItem{Correctly finishing the task within the time limit (i.e. all objects in the search area have been placed in their corresponding deposit): 50 points.}
-    \item Task 2a
-        \SubItem{Navigating to a goal location in the next room while avoiding random obstacles lying on the floor within the access area. As we are considering very small and flat objects, a collision will be reckoned if there is physical contact with any object on the floor: 100 points.}
-    \item Task 2b
-        \SubItem{Grasping any food item in the shelf: 30 points x 1 unit.}
-        \SubItem{Correctly taking the requested food item among many objects in the shelf: 70 additional points. Note that the requested object is likely to be occluded by other items in the shelf and therefore a grasping strategy should be implemented (e.g. first move item one and item two in front of the target object and without hitting any other object in the shelf before being able to take the requested object).}
-        \SubItem{Delivering the object to a person in the delivery area: 30 points x 1 person.}
-        \SubItem{Correctly detecting a person request and giving the food item to her/him: 70 additional points.}
-        \SubItem{Correctly finishing the task within time limit (i.e. correct object delivered to the right person and without collisions): 50 points.}
-        \SubItem{If any time remaining, add 20 points per minute.}
-    \item The final score in a full round is the sum of partial scores per match in their corresponding bracket.
+    \item The final score in a full trial is the average of partial scores per run.
 \end{itemize}
 
 \begin{figure}[!h]
@@ -459,42 +432,18 @@ Several teams are expected to participate and two identical arenas are set up. F
 \begin{itemize}
     \item Bonus points can be given if the team opts for the bonus challenges (50 points per challenge):
         \SubItem{Boss-character manipulation, this includes one single object in a difficult place, like at the back of or under a table.%, and may be textureless and or flat (see Figure \ref{fig:difficult}).
-        The boss-object will be released in due time to the qualified teams.}
+        %The boss-object will be released in due time to the qualified teams.
+        }
         \SubItem{Opening the three shelf drawers. No further human interaction is allowed. If the robot opens the drawers such that no object can fit in there and therefore the referee or the operator needs to open it more, no bonus points will be considered.}
 \end{itemize}
 
-\iffalse
-\begin{figure}[!h]
-	\centering
-	\begin{subfigure}{.45\textwidth}
-  		\centering
-  		\includegraphics[width=1\textwidth]{{images/difficult_1.jpg}}
-  		\caption{}
-  		\label{fig:difficult1}
-	\end{subfigure}
-	\begin{subfigure}{.45\textwidth}
-  		\centering
-  		\includegraphics[width=1\textwidth]{{images/difficult_2.jpg}}
-  		\caption{}
-  		\label{fig:difficult2}
-	\end{subfigure}
-	\caption{Hard-to-manipulate objects include a) flat, textureless, and transparent objects, and b) objects in difficult places such as under tables.}
-	\label{fig:difficult}
-\end{figure}
-\fi
-
 \begin{itemize}
-    \item Penalty points in \textbf{Task 1} can be given in the following scenarios:
+    \item Penalty points in \textbf{Clean Up} can be given in the following scenarios:
         %\SubItem{The robot moves to room 2 before the task is completed (i.e. placing at least one object into their correct location) or the time limit ($\pm$ 15 seconds) is reached: -100 points.}
         \SubItem{Dropping an object (however, if the robot successfully re-takes the same object, no penalisation will be considered): Points x 50\% in the next object.}
-        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to a maximum of two restarts  (in total with Task 2,to prevent repeatedly fine adjustments): Points x 50\% in the next object.}
+        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments): Points x 50\% in the next object.}
         \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: Points x 50\% for the current object.}
         \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 for the current object.}
-    \item Similarly, penalty points in \textbf{Task 2} are considered in the following scenarios:
-        \SubItem{Dropping an object out of the shelf (however, if the robot successfully re-takes the same object and delivers it back inside the shelf, no penalisation will be considered): 0.25 x Partial points in Task 2b$_1$ (considered as a HIT in the score sheet).}
-        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to a maximum of two restarts (in total with Task 1, to prevent repeatedly fine adjustments): 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
-        \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
-        \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 in Task 2b.}
 \end{itemize}
 
 IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours out of the 4S philosophy (Speed, Smooth/Smart, Stable, Safe) such as the robot constantly hitting objects while navigating or grasping objects (i.e. no path and or motion planning is being used), repeatedly dropping objects (i.e. no intelligent manipulation strategies are in use), and so on, they can stop the test and grant zero points for that trial to the team.
@@ -517,18 +466,111 @@ IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours
   		\centering
   		\includegraphics[width=1\textwidth]{{images/hand_c.jpg}}
   		\caption{}
-  		\label{fig:handhit}
+  		\label{fig:handnohitb}
 	\end{subfigure}
 	\begin{subfigure}{.30\textwidth}
   		\centering
   		\includegraphics[width=1\textwidth]{{images/hand_d.jpg}}
   		\caption{}
-  		\label{fig:handnohit}
+  		\label{fig:handhit}
 	\end{subfigure}
 	\caption{a) Valid manipulator's fingers and palm areas that can be in contact with an object without being considered a hit. b) In the example, to take the apple surrounded by two objects, c) it is allowed to move the objects around the target object without dropping them or hitting and moving neighbour objects with the displaced objects. d) A hit is considered when the robot hand (except the fingers and palm) or any other part of the robot touches an object (e.g. the pear in the image) or when the center of mass of a neighbour object is displaced two or more centimeters after a hit by a displaced object (e.g. the boxes were significantly moved after a hit by the peach).}
 	\label{fig:handhitareas} 
 \end{figure}
 
+\clearpage
+\subsection{Go and Get It}
+
+\textbf{Description:} Provide a person with something to consume when requested.
+\textbf{Time:} 5 min for Stage I
+
+\subsubsection{Settings}
+
+\noindent
+\textbf{Environment}
+\begin{itemize}
+    \item The robot starts at the front entrance; the robot reads what object to deliver.
+    \item Furniture: shelf without door (Figure \ref{fig:shelf}), chair (x2).
+    \item Storage places: shelf without door.
+\end{itemize}
+
+\begin{figure}[!h]
+	\centering
+	%\begin{subfigure}{.45\textwidth}
+  		%\centering
+  		\includegraphics[width=0.45\textwidth]{{images/shelf.jpg}}
+  		%\caption{}
+  		%\label{fig:objects}
+	%\end{subfigure}
+	%\begin{subfigure}{.45\textwidth}
+  	%	\centering
+  	%	\includegraphics[width=1\textwidth]{{images/lateral_door_b.jpg}}
+  	%	\caption{}
+  	%	\label{fig:door}
+	%\end{subfigure}
+	\caption{Front view of the shelf and objects inside it.}
+	\label{fig:shelf}
+\end{figure}
+
+\noindent
+\textbf{Task Performance}
+\begin{itemize}
+    \item The robot starts at the front entrance; there might be objects on the floor of Room I according to the Clean Up regulations (i.e. same initial setup for all the competition).
+    \item The location of the shelf is known and fixed.
+\end{itemize}
+
+\subsubsection{Before the Competition}
+
+\begin{itemize}
+    \item Teams are given the time to create/adjust map data in the actual apartment.
+    \item Right before the competition, the referee sets the rooms into messy condition (within a specified error tolerance range).
+    \item Room 1. Living room (task planning, object recognition and manipulation), as a default setup:
+        \SubItem{30 objects (5 categories, 5 known + 1 unknown objects per category) are randomly placed in the room (on the floor and or tables).}
+        \SubItem{1 boss-character placed at a challenging position within the arena (please refer to Section \ref{sec:scores} for details).}
+    \item Room 2. Dining space (HRI, path and motion planning), for the Go and Get It task:
+        \SubItem{Obstacles on the floor are set in the access between rooms. Several food items are placed inside the shelf. Some people are in the dining room.}
+\end{itemize}
+
+\subsubsection{During the Competition}
+
+The robot enters the living room in a messy condition. Three runs are allowed per trial, an average result is given. A detailed description of a full run is described bellow:
+
+\begin{itemize}
+    \item Each test starts with the robot at the front entrance (starting point). The start signal is the robot motion.
+    \item Task 2a
+        \SubItem{Enters the dining room and goes to a location inside the room while avoiding obstacles.}
+    \item Task 2b
+        \SubItem{The robot goes directly to the shelf and takes the correct object given at the beginning of the test.}
+        \SubItem{The robot moves toward the group of persons and gives the object to the one requesting it.}
+        \SubItem{The test ends with the robot reporting the completion of the task or the time is over.}
+\end{itemize}
+
+\subsubsection{Scores} \label{sec:scores}
+
+\begin{itemize}
+    \item Task 2a
+        \SubItem{Navigating to a location in Room 2 while avoiding random obstacles lying on the floor within the access area. As we are considering very small and flat objects, a collision will be reckoned if there is physical contact with any object on the floor: 100 points.}
+    \item Task 2b
+        \SubItem{Grasping any food item in the shelf: 30 points x 1 unit.}
+        \SubItem{Correctly taking the requested food item among many objects in the shelf: 70 additional points. Note that the requested object is likely to be occluded by other items in the shelf and therefore a grasping strategy should be implemented (e.g. first move item one and item two in front of the target object and without hitting any other object in the shelf before being able to take the requested object).}
+        \SubItem{Delivering the object to a person in the delivery area: 30 points x 1 person.}
+        \SubItem{Correctly detecting a person request and giving the food item to her/him: 70 additional points.}
+        \SubItem{Correctly finishing the task within time limit (i.e. correct object delivered to the right person and without collisions): 50 points.}
+        \SubItem{If any time remaining, add 20 points per minute.}
+    \item The final score in a full trial is the average of partial scores per run.
+\end{itemize}
+
+\begin{itemize}
+    \item Penalty points in \textbf{Go and Get It} are considered in the following scenarios:
+        \SubItem{Dropping an object out of the shelf (however, if the robot successfully re-takes the same object and delivers it back inside the shelf, no penalisation will be considered): 0.25 x Partial points in Task 2b$_1$ (considered as a HIT in the score sheet).}
+        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments): 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
+        \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
+        \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 in Task 2b.}
+\end{itemize}
+
+IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours out of the 4S philosophy (Speed, Smooth/Smart, Stable, Safe) such as the robot constantly hitting objects while navigating or grasping objects (i.e. no path and or motion planning is being used), repeatedly dropping objects (i.e. no intelligent manipulation strategies are in use), and so on, they can stop the test and grant zero points for that trial to the team.
+
+\clearpage
 \subsection{Additional rules and remarks}
 
 \begin{itemize}
@@ -543,23 +585,6 @@ IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours
 
 IMPORTANT: \textbf{External devices notification.} Before using external tools or performing any hardware modification, teams should submit to the committee a letter of intent specifying the details of such tool or modification to receive approval and or feedback.
 
-%\begin{figure}[!h]%[!htbp]
-%	\centering
-%	%\begin{center}
-%	\includegraphics[width=0.80\textwidth]{{images/external_device.jpg}}
-%	\caption{Designated area (50x50 cm) inside the arena to place an external camera.}
-%	\label{fig:external}
-%	%\end{center}
-%\end{figure}
-
-%\subsection{Data Recordings}
-
-%The following data may be required by the referee to support scoring.
-%\begin{itemize}
-%    \item Recognised object images.
-%    \item List of manipulated objects.
-%\end{itemize}
-
 \subsection{Special considerations}
 
 The core task in this test is having a robot that autonomously tidies up a messed room as a human would do. 
@@ -569,7 +594,7 @@ This rulebook presents a series of guidelines and regulations that objectively a
 In principle, any robot behaviour not regulated here is allowed as long as it doesn't interfere with solving the core task. However, the Technical Committee is allowed to ban any behaviour not mentioned here and that they may consider unfair (e.g. taking several objects at the same time without announcing it and without a clear object recognition; asking for human interaction beyond the established in the rulebook; etc). If you have any concern about a behaviour that may seem controversial, please contact the TC before considering their application to solving the task.
 
 \iffalse
-\newpage
+\clearpage
 %\pagebreak
 \subsection{Score Sheet}
 
@@ -644,9 +669,9 @@ Total score per match:
 %\end{table}
 \fi
 
-\newpage
+\clearpage
 %\pagebreak
-\subsection{Score Sheet - Task 1}
+\subsection{Score Sheet - Clean Up}
 
 Total score per match:\\ \\
 
@@ -731,7 +756,7 @@ Total score per match:\\ \\
 %\label{table:scores}
 %\end{table}
 
-\newpage
+\clearpage
 
 %\begin{table}
 \begin{center}
@@ -809,7 +834,7 @@ Total score per match:\\ \\
     \multicolumn{9}{|l|}{--Boss-character manipulation} &\\
     \multicolumn{9}{|l|}{--Opening the three drawers (without further human interaction)} &\\
     \hline
-    \multicolumn{9}{|r|}{\textbf{SUBTOTAL (Task 1)}  } &\\ 
+    \multicolumn{9}{|r|}{\textbf{TOTAL (Clean Up)}  } &\\ 
     \hline
     \multicolumn{10}{|l|}{Comments:} \\ 
     \multicolumn{10}{|l|}{} \\
@@ -822,10 +847,10 @@ Total score per match:\\ \\
 
 \begin{center} Referee: $\rule{3cm}{0.15mm}$ Team Leader: $\rule{3cm}{0.15mm}$ \end{center}
 
-\newpage
+\clearpage
 %\pagebreak
 
-\subsection{Score Sheet - Task 2}
+\subsection{Score Sheet - Go and Get It}
 
 Total score per match:\\ \\
 
@@ -837,7 +862,7 @@ Total score per match:\\ \\
     \hline
     \multicolumn{3}{|l|}{\textbf{\textit{Task 2a}}} \\ 
     \hline
-    Successfully entering to the dining room to the goal location and without collisions & 100 & \\ 
+    Successfully entering to the dining room without collisions & 100 & \\ 
     \hline
     \multicolumn{3}{|l|}{\textbf{\textit{Task 2b}}} \\ 
     \hline
@@ -873,23 +898,24 @@ Total score per match:\\ \\
     \hline
     If any time remaining, add 20 points per minute & 20 x minutes & \\ 
     \hline
-    \multicolumn{2}{|r|}{\textbf{SUBTOTAL (Task 2)}  } &\\
+    \multicolumn{2}{|r|}{\textbf{TOTAL (Go and Get It)}  } &\\
     \hline
-    \multicolumn{3}{|l|}{}\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ |m{8cm}|m{3cm}|m{1cm}| } 
     \hline
-    \multicolumn{2}{|r|}{\textbf{TOTAL (Task 1 + Task 2)}  } &\\
+    \multicolumn{3}{|l|}{\textbf{\textit{Special Penalties}}  (Clean Up and Go and Get It)} \\ 
     \hline
-    \multicolumn{3}{|l|}{}\\
-    \hline
-    \multicolumn{3}{|l|}{\textbf{\textit{Special Penalties}}} \\ 
-    \hline
-    Three or more restarts & Total points x 0.0 & \\
+    Two or more restarts & Total points x 0.0 & \\
     \hline
     Emergency stop by a referee & Total points x 0.0 & \\
     \hline
     \multicolumn{3}{|l|}{}\\
     \hline
-    \multicolumn{3}{|l|}{Note: a HIT considers dropping an object out of the shelf, a restart, and a regular collision.} \\ 
+    \multicolumn{3}{|l|}{Note: a HIT considers dropping an object out of the shelf, a restart,} \\
+    \multicolumn{3}{|l|}{and a regular collision.} \\ 
     \hline
 \end{tabular}
 \end{center}
@@ -898,48 +924,7 @@ Total score per match:\\ \\
 
 \begin{center} Referee: $\rule{3cm}{0.15mm}$ Team Leader: $\rule{3cm}{0.15mm}$ \end{center}
 
-\newpage
-
-Total points per match (win: 3, draw: 1, defeat: 0):
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ |m{1.5cm}|m{0.6cm}|m{0.6cm}|m{0.6cm}|m{0.6cm}|m{0.6cm}|m{0.6cm}|m{0.6cm}|m{0.6cm}| } 
-    \hline
-    &\multicolumn{8}{|c|}{\textbf{Team}}\\
-    \cline{2-9}
-    &\multicolumn{4}{|c|}{\textbf{Group A}} & \multicolumn{4}{|c|}{\textbf{Group B}}\\
-	\cline{2-9}
-    \textbf{Match} & \textbf{I} & \textbf{II} & \textbf{III} & \textbf{IV} & \textbf{V} & \textbf{VI} & \textbf{VII} & \textbf{VII} \\ 
-    \hline
-    \textbf{1} & & & & & & & & \\
-    \hline
-    \textbf{2} & & & & & & & & \\
-    \hline
-    \textbf{3} & & & & & & & & \\
-    \hline
-    \textbf{Total} & & & & & & & & \\
-    \hline
-    \hline
-    & \multicolumn{2}{|c|}{\textbf{S1}} & \multicolumn{2}{|c|}{\textbf{S2}} & \multicolumn{2}{|c|}{\textbf{S3}} & \multicolumn{2}{|c|}{\textbf{S4}} \\
-    \hline
-    \textbf{1} & \multicolumn{2}{|c|}{} & \multicolumn{2}{|c|}{} & \multicolumn{2}{|c|}{} & \multicolumn{2}{|c|}{} \\
-    \hline
-    \hline
-    & \multicolumn{4}{|c|}{\textbf{Final}} & \multicolumn{4}{|c|}{\textbf{3rd place}} \\
-    \hline
-    & \multicolumn{2}{|c|}{\textbf{F1}} & \multicolumn{2}{|c|}{\textbf{F2}} & \multicolumn{2}{|c|}{\textbf{F4}} & \multicolumn{2}{|c|}{\textbf{F4}} \\
-    \hline
-    \textbf{1} & \multicolumn{2}{|c|}{} & \multicolumn{2}{|c|}{} & \multicolumn{2}{|c|}{} & \multicolumn{2}{|c|}{} \\
-    \hline
-\end{tabular}
-\end{center}
-\label{table:fixtures}
-\end{table}
-
-NOTE: If there are more than eight participating teams, a selection tournament might take place during the competition. We will announce the rules and considerations in due time. 
-
-\newpage
+\clearpage
 \section{Appendix}
 \subsection{Furniture models} \label{sec:furniture}
 
@@ -995,7 +980,7 @@ Note: units are in meters in the following order:  width x length x height.
 \label{table:furniture}
 \end{table}
 
-\newpage
+\clearpage
 
 \begin{figure}[!h]
   	\centering
@@ -1039,20 +1024,20 @@ Note: units are in meters in the following order:  width x length x height.
 	\label{fig:chairmodel}
 \end{figure}
 
-\newpage
+\clearpage
 \subsection{Arena Setup}
 
 The arena setup consists of two rooms (Room\_1 and Room\_2), one per task, as in Figure \ref{fig:arenaareas}. 
 
 \subsubsection{Room 1}
 
-In Task\_1, the room is divided in two main areas, the \textbf{Search Area}, where the objects are scattered around, and the \textbf{Deposit Area}, where the objects should be placed.
+In the Clean Up task, the room is divided in two main areas, the \textbf{Search Area}, where the objects are scattered around, and the \textbf{Deposit Area}, where the objects should be placed.
 
 \begin{figure}[!h]%[!htbp]
 	\centering
 	%\begin{center}
 	\includegraphics[width=0.80\textwidth]{{images/map_areas.png}}
-	\caption{Test arena by interaction areas. There are two rooms, one per task, and five main areas: for Task 1, in Room\_1, we have the Deposit and Search areas; in the case of Task 2 (Room\_2), for Task 2a we have the Obstacle Avoidance and Goal areas and, for Task 2b, the Food and Delivery areas.}
+	\caption{Test arena by interaction areas. There are two rooms, one per task, and five main areas: for Clean Up, in Room\_1, we have the Deposit and Search areas; in the case of Go and Get It, (Room\_2), for Task 2a we have the Obstacle Avoidance and Goal areas and, for Task 2b, the Food and Delivery areas.}
 	\label{fig:arenaareas}
 	%\end{center}
 \end{figure}
@@ -1149,7 +1134,7 @@ In Task 2b, the food items in the Food Area will be placed inside a shelf (Figur
 
 Finally, there will be two persons in the Delivery Area (they might be either standing up or sitting down) and one of them will be requesting an item by waving her/his arm (it can be both the left or right arm).
 
-\newpage
+\clearpage
 \subsection{Objects to be used}
 
 Object's specifications and their corresponding 3D models can be found in \url{http://www.ycbbenchmarks.com} . Mass and weight can be consulted in \url{http://www.ycbbenchmarks.com/wp-content/uploads/2015/09/object-list-Sheet1.pdf}.
@@ -1219,18 +1204,7 @@ IMPORTANT: \textbf{Object availability}: Please consider that some objects might
         \SubItem{Black t-shirt}
         \SubItem{Timer}
 
-
-
-
-
-
     %\item Hard-to-manipulate:
-
-
-
-
-
-
 
     \item Discarded:
         \SubItem{Skillet}
@@ -1253,3 +1227,4 @@ IMPORTANT: \textbf{Object availability}: Please consider that some objects might
 \end{itemize}
 
 \end{document}
+
