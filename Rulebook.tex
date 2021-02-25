@@ -13,6 +13,10 @@
 \usepackage{amsmath}
 \usepackage{url,lineno,microtype}
 
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -183,6 +187,22 @@ The simulation Domestic Standard Platform League surges from the necessity to st
 
 The rules and regulations of the sDSPL are highly based on the World Robot Summit - Partner Robot Challenge (Real Space), as in {\small\url{https://worldrobotsummit.org/}}, and therefore some rules might not be applicable to a simulated environment, especially those limited by real physical and mechanical principles.
 
+\vspace{5mm} %5mm vertical space
+\textbf{Simulator}
+
+The TC finally decided to use the OSS HSR simulator. You can find a Docker image of the simulator here:
+
+\vspace{5mm}
+{\small\url{https://github.com/hsr-project/tmc_wrs_docker}}
+
+\vspace{5mm}
+This link\footnotemark explains how to use it in the simulation league.
+
+\footnotetext[2]{{\small\url{https://dev.to/yosuke/robocup-simulation-league-is-accepting-your-challenge-for-free-1g66}}}
+
+\vspace{5mm}
+\textbf{Tests}
+
 The competition is as follows:
 
 \begin{itemize}
@@ -268,9 +288,9 @@ The Key Performance Indicator is based on a 4S philosophy: Speed, Smooth/ Smart,
     \item Unknown objects - without pre-announced object recognition data nor location information. They will be frequently used daily goods and tools as in Young Sang Choi et. al. \footnotemark, and may include deformable objects such as clothing, food, magazines, etc., 5 units (one per category). 
 \end{itemize}
 
-\footnotetext[2]{Berk Calli et. al. \textit{Benchmarking in Manipulation Research: The YCB Object and Model Set and Benchmarking Protocols}. IEEE Robotics and Automation Magazine, 2015.}
+\footnotetext[3]{Berk Calli et. al. \textit{Benchmarking in Manipulation Research: The YCB Object and Model Set and Benchmarking Protocols}. IEEE Robotics and Automation Magazine, 2015.}
 
-\footnotetext[3]{Young Sang Choi et. al. (2009), \textit{A list of household objects for robotic retrieval prioritized by people with ALS}. IEEE International Conference on Rehabilitation Robotics, ICORR 2009.}
+\footnotetext[4]{Young Sang Choi et. al. (2009), \textit{A list of household objects for robotic retrieval prioritized by people with ALS}. IEEE International Conference on Rehabilitation Robotics, ICORR 2009.}
 
 %\footnotetext[3]{http://www.ycbbenchmarks.com/}
 
