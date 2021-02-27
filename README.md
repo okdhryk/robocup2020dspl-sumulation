@@ -16,6 +16,8 @@ $ ./latexdockercmd.sh pdflatex Rulebook.tex
 ## How to generate a PDF file from a tex file (Gitpod)
 click Gitpod icon
 You can use texlive commands
+$ ./latexmk.sh
+$ cd work
 
 
 ## FAQ
