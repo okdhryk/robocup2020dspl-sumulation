@@ -5,17 +5,22 @@ Only spelling corrections and minor clarificatios may be merged from now on, as 
 
 Current PDF (master) https://okdhryk.github.io/robocup2020dspl-sumulation/Rulebook.pdf
 
-https://okdhryk.github.io/robocup2020dspl-sumulation/
 
 ## How to generate a PDF file from a tex file
 ```
+$ git pull https://github.com/okdhryk/robocup2020dspl-sumulation.git
+$ cd robocup2020dspl
 $ ./latexdockercmd.sh pdflatex Rulebook.tex
 ```
-aaaa
+
+## How to generate a PDF file from a tex file (Gitpod)
+click Gitpod icon
+You can use texlive commands
 
 
 ## FAQ
 See the Frequently Asked Questions here.
+https://okdhryk.github.io/robocup2020dspl-sumulation/
 
 Or ask us via 
 
