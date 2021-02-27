@@ -296,8 +296,6 @@ The Key Performance Indicator is based on a 4S philosophy: Speed, Smooth/ Smart,
 
 Object's specifications and their corresponding 3D models can be found in http://www.ycbbenchmarks.com/ .
 
-\textbf{Boss-character}. During the competitions, one local and representative object may be used to encourage teams to solve some of the most difficult tasks while making the competition more exciting for viewers.\\
-
 \clearpage
 \subsection{Clean Up}
 
@@ -346,7 +344,6 @@ Object's specifications and their corresponding 3D models can be found in http:/
 \begin{itemize}
     \item The name and location of the deposits are fixed, such as tools drawer, food tray, task items bin, kitchen items container, etc.
     \item Known objects are given with pre-announced information on their corresponding deposits. Orientation-based items can be placed in a deposit corresponding to their category (correct category point) or property (correct category and, if correctly placed, orientation points).
-    \item For unknown objects, the robot inquires the operator to get information on tidy up space (by voice or QR code), or by the robot own judgement (e.g. toys go into task items bin or food tray?).
     \item The furniture doors will have easy-to-manipulate handles (as in Figure \ref{fig:handles}).
 \end{itemize}
 
@@ -357,7 +354,6 @@ Object's specifications and their corresponding 3D models can be found in http:/
     \item Right before the competition, the referee sets the rooms into messy condition (within a specified error tolerance range).
     \item Room 1. Living room (task planning, object recognition and manipulation), for the Clean Up task:
         \SubItem{30 objects (5 categories, 5 known + 1 unknown objects per category) are randomly placed in the room (on the floor and or tables).}
-        \SubItem{1 boss-character placed at a challenging position within the arena (please refer to Section \ref{sec:scores} for details).}
 \end{itemize}
 
 \subsubsection{During the Competition}
@@ -450,10 +446,7 @@ The robot enters the living room in a messy condition, tidies up the room in 5 m
 \end{figure}
 
 \begin{itemize}
-    \item Bonus points can be given if the team opts for the bonus challenges (50 points per challenge):
-        \SubItem{Boss-character manipulation, this includes one single object in a difficult place, like at the back of or under a table.%, and may be textureless and or flat (see Figure \ref{fig:difficult}).
-        %The boss-object will be released in due time to the qualified teams.
-        }
+    \item Bonus points can be given if the team opts for the bonus challenges (50 points):
         \SubItem{Opening the three shelf drawers. No further human interaction is allowed. If the robot opens the drawers such that no object can fit in there and therefore the referee or the operator needs to open it more, no bonus points will be considered.}
 \end{itemize}
 
@@ -461,7 +454,7 @@ The robot enters the living room in a messy condition, tidies up the room in 5 m
     \item Penalty points in \textbf{Clean Up} can be given in the following scenarios:
         %\SubItem{The robot moves to room 2 before the task is completed (i.e. placing at least one object into their correct location) or the time limit ($\pm$ 15 seconds) is reached: -100 points.}
         \SubItem{Dropping an object (however, if the robot successfully re-takes the same object, no penalisation will be considered): Points x 50\% in the next object.}
-        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments): Points x 50\% in the next object.}
+        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments). As the task is fully completed in the simulation, restarts are allowed only if no collision has been detected in the full run: Points x 50\% in the next object.}
         \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: Points x 50\% for the current object.}
         \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 for the current object.}
 \end{itemize}
@@ -565,6 +558,16 @@ The robot enters the living room in a messy condition. Three runs are allowed pe
         \SubItem{The test ends with the robot reporting the completion of the task or the time is over.}
 \end{itemize}
 
+In the simulator, there will be a delivery area, as in Figure \ref{fig:arenaareas}, and it will be divided into left and right side. A person will be randomly located in each side, and within a reachable position to the robot; they will be reffered as "left person" and "right person".
+
+Commands are provided to the robot trough the \textbf{/message} topic as follows:
+
+\begin{itemize}
+    \item When robot enters Room 2 The target object is published.
+    \item When robot enters the delivery area: The target person is published.
+    \item When robot approaches a person: A "done" message is published.
+\end{itemize}
+
 \subsubsection{Scores} \label{sec:scores}
 
 \begin{itemize}
@@ -583,7 +586,7 @@ The robot enters the living room in a messy condition. Three runs are allowed pe
 \begin{itemize}
     \item Penalty points in \textbf{Go and Get It} are considered in the following scenarios:
         \SubItem{Dropping an object out of the shelf (however, if the robot successfully re-takes the same object and delivers it back inside the shelf, no penalisation will be considered): 0.25 x Partial points in Task 2b$_1$ (considered as a HIT in the score sheet).}
-        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments): 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
+        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments). As the task is fully completed in the simulation, restarts are allowed only if no collision has been detected in the full run: 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
         \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
         \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 in Task 2b.}
 \end{itemize}
@@ -594,12 +597,8 @@ IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours
 \subsection{Additional rules and remarks}
 
 \begin{itemize}
-    \item The use of an external laptop mounted in the back of the robot is allowed.
     \item The robot can use any type of external computing (e.g. cloud computing) and can connect to it via wireless (WiFi provided, but not guaranteed).% or Ethernet cable (an external PC can be placed in a designated area) [Note: use of a Ethernet cable TO BE DECIDED].
     %\item An external camera in a designated area inside the arena at a high height and facing towards the floor can be used (not provided by the organizers). All the external equipment should fit in the designated area (see Figure \ref{fig:external}).
-    \item Hand manipulator can be changed (i.e. only the gripper design), TOYOTA will provide the drawings and manuals under request. Safety and motion tests should be confirmed by each team prior and during the competition.
-    %\item The use of external tools (carts, trays, etc.) is allowed (no actuators or active devices) to deliver multiple objects at the same time.
-    \item Passive sensors (e.g. depth sensors mounted in the hand, such as lasers or sonars) are allowed within the restrictions to be provided by TOYOTA. However, no actuators are allowed (active devices).
     \item Random robot inspections will be performed during the competition.
 \end{itemize}
 
@@ -850,8 +849,7 @@ Total score per match:\\ \\
     \hline
     \multicolumn{9}{|l|}{Finishing the task within the time limit (15 min $\pm$ 15 sec): 50 points} & \\
     \hline
-    \multicolumn{9}{|l|}{Bonus challenges (50 points per challenge):} &\\
-    \multicolumn{9}{|l|}{--Boss-character manipulation} &\\
+    \multicolumn{9}{|l|}{Bonus challenges (50 points):} &\\
     \multicolumn{9}{|l|}{--Opening the three drawers (without further human interaction)} &\\
     \hline
     \multicolumn{9}{|r|}{\textbf{TOTAL (Clean Up)}  } &\\ 
