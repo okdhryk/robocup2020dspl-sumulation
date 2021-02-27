@@ -5,6 +5,8 @@ Only spelling corrections and minor clarificatios may be merged from now on, as 
 
 Current PDF (master) https://okdhryk.github.io/robocup2020dspl-sumulation/Rulebook.pdf
 
+https://okdhryk.github.io/robocup2020dspl-sumulation/
+
 ## How to generate a PDF file from a tex file
 ```
 $ ./latexdockercmd.sh pdflatex Rulebook.tex
