@@ -362,7 +362,7 @@ Object's specifications and their corresponding 3D models can be found in http:/
 
 \subsubsection{During the Competition}
 
-The robot enters the living room in a messy condition, tidies up the room in 5 minutes (Stage I) or 15 minutes (Stage II). Three runs are allowed per trial, an average result is given. A detailed description of a full run is described below:
+The robot enters the living room in a messy condition, tidies up the room in 5 minutes (Stage I) or 15 minutes (Stage II). Three runs are allowed per trial. A detailed description of a full run is described below:
 
 \begin{itemize}
     \item Each test starts with the robot at the front entrance (starting point). The start signal is the robot motion.
@@ -380,7 +380,7 @@ The robot enters the living room in a messy condition, tidies up the room in 5 m
         \SubItem{Correctly depositing an object according to its category: 10 additional points per object.}
         \SubItem{Correctly depositing an object based on its orientation (e.g. markers' tips facing downwards as in Figure \ref{fig:orientation}): 10 additional points per object.}
         \SubItem{Correctly finishing the task within the time limit (i.e. all objects in the search area have been placed in their corresponding deposit): 50 points.}
-    \item The final score in a full trial is the average of partial scores per run.
+    \item The best execution (highest scored run) will be taken as score for that particular trial.
 \end{itemize}
 
 \begin{figure}[!h]
@@ -458,7 +458,6 @@ The robot enters the living room in a messy condition, tidies up the room in 5 m
     \item Penalty points in \textbf{Clean Up} can be given in the following scenarios:
         %\SubItem{The robot moves to room 2 before the task is completed (i.e. placing at least one object into their correct location) or the time limit ($\pm$ 15 seconds) is reached: -100 points.}
         \SubItem{Dropping an object (however, if the robot successfully re-takes the same object, no penalisation will be considered): Points x 50\% in the next object.}
-        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments). As the task is fully completed in the simulation, restarts are allowed only if no collision has been detected in the full run: Points x 50\% in the next object.}
         \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: Points x 50\% for the current object.}
         \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 for the current object.}
 \end{itemize}
@@ -549,7 +548,7 @@ IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours
 
 \subsubsection{During the Competition}
 
-The robot enters the living room in a messy condition. Three runs are allowed per trial, an average result is given. A detailed description of a full run is described bellow:
+The robot enters the living room in a messy condition. Three runs are allowed per trial. A detailed description of a full run is described bellow:
 
 \begin{itemize}
     \item Each test starts with the robot at the front entrance (starting point). The start signal is the robot motion.
@@ -583,13 +582,12 @@ Commands are provided to the robot trough the \textbf{/message} topic as follows
         \SubItem{Correctly detecting a person request and giving the food item to her/him: 70 additional points.}
         \SubItem{Correctly finishing the task within time limit (i.e. correct object delivered to the right person and without collisions): 50 points.}
         \SubItem{If any time remaining, add 20 points per minute.}
-    \item The final score in a full trial is the average of partial scores per run.
+    \item The best execution (highest scored run) will be taken as score for that particular trial.
 \end{itemize}
 
 \begin{itemize}
     \item Penalty points in \textbf{Go and Get It} are considered in the following scenarios:
         \SubItem{Dropping an object out of the shelf (however, if the robot successfully re-takes the same object and delivers it back inside the shelf, no penalisation will be considered): 0.25 x Partial points in Task 2b$_1$ (considered as a HIT in the score sheet).}
-        \SubItem{If the robot is stuck during the competition, it can be restarted if necessary. After the robot has been stopped by the operator, the robot should be operated and initialised in the starting point, limited to one restart (to prevent repeatedly fine adjustments). As the task is fully completed in the simulation, restarts are allowed only if no collision has been detected in the full run: 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
         \SubItem{The robot (except for the manipulator's fingers and palm, see Figure \ref{fig:handhitareas}) or the additional equipment prepared by the team hits any object/obstacle inside the arena or in the shelf, or any part of the robot hits the furniture or walls: 0.25 x Partial points in Task 2b$_1$ or Task 2b$_2$ (considered as a HIT in the score sheet).}
         \SubItem{The robot performs a false delivery (i.e. moves to the deposit location without holding any object in its manipulator): Points x0.0 in Task 2b.}
 \end{itemize}
@@ -600,8 +598,7 @@ IMPORTANT: \textbf{Emergency stop.} If the referees or the TC observe behaviours
 \subsection{Additional rules and remarks}
 
 \begin{itemize}
-    \item The robot can use any type of external computing (e.g. cloud computing) and can connect to it via wireless (WiFi provided, but not guaranteed).% or Ethernet cable (an external PC can be placed in a designated area) [Note: use of a Ethernet cable TO BE DECIDED].
-    %\item An external camera in a designated area inside the arena at a high height and facing towards the floor can be used (not provided by the organizers). All the external equipment should fit in the designated area (see Figure \ref{fig:external}).
+    \item The robot can use any type of external computing (e.g. cloud computing) and can connect to it via wireless (WiFi provided, but not guaranteed).
     \item Random robot inspections will be performed during the competition.
 \end{itemize}
 
@@ -928,8 +925,6 @@ Total score per match:\\ \\
 \begin{tabular}{ |m{8cm}|m{3cm}|m{1cm}| } 
     \hline
     \multicolumn{3}{|l|}{\textbf{\textit{Special Penalties}}  (Clean Up and Go and Get It)} \\ 
-    \hline
-    Two or more restarts & Total points x 0.0 & \\
     \hline
     Emergency stop by a referee & Total points x 0.0 & \\
     \hline
